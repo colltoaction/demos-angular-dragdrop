@@ -12,13 +12,22 @@
     <div ng-controller="SimpleDemoController as ctr">
         <div layout sv-root>
             <div flex="25" sv-part="ctr.lists[0]">
-                <div ng-repeat="item in ctr.lists[0]" sv-element>
-                    <div class="list-item">{{item.label}}</div>
+                <div ng-if="ctr.lists[0].length == 0" sv-element>
+                    drag some pictures here
+                </div>
+                <div ng-if="ctr.lists[0].length != 0" ng-repeat="item in ctr.lists[0]" sv-element>
+                    <div class="list-item">
+                        <div>{{item.label}}</div>
+                        <div><img ng-src="{{item.img}}"></img></div>
+                    </div>
                 </div>
             </div>
             <div flex sv-part="ctr.lists[1]">
-                <div ng-repeat="item in ctr.lists[1]" sv-element>
-                    <div class="list-item">{{item.label}}</div
+                <div ng-if="ctr.lists[1].length != 0" ng-repeat="item in ctr.lists[1]" sv-element>
+                    <div class="list-item">
+                        <div>{{item.label}}</div>
+                        <div><img ng-src="{{item.img}}"></img></div>
+                    </div>
                 </div>
             </div>
         </div>
